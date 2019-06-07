@@ -54,7 +54,7 @@ MacNotification::MacNotification(Nan::Utf8String *id,
 
      NSImage *iconImage=[[NSImage alloc] initWithContentsOfURL:iconUrl];
     // notification.contentImage = iconImage;
-    // [notification setValue:iconImage forKey:@"_identityImage"];
+    [notification setValue:iconImage forKey:@"_identityImage"];
   }
 
   if (soundName != nullptr) {

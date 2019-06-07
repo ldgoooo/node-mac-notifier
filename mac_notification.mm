@@ -49,12 +49,12 @@ MacNotification::MacNotification(Nan::Utf8String *id,
 
   if (icon != nullptr) {
     NSString *iconString = [NSString stringWithUTF8String:**icon];
-    // NSURL *iconUrl = [NSURL URLWithString:iconString];
+    NSURL *iconUrl = [NSURL URLWithString:iconString];
     // notification.contentImage = [[NSImage alloc] initWithContentsOfURL:iconUrl];
-    NSData *decodeData = [[NSData alloc]initWithBase64EncodedString:iconString options:(NSDataBase64DecodingIgnoreUnknownCharacters)];
+    // NSData *decodeData = [[NSData alloc]initWithBase64EncodedString:iconString options:(NSDataBase64DecodingIgnoreUnknownCharacters)];
 
-    NSImage *iconImage = [[NSImage alloc] initWithData:decodeData];
-     // NSImage *iconImage=[[NSImage alloc] initWithContentsOfURL:iconUrl];
+    // NSImage *iconImage = [[NSImage alloc] initWithData:decodeData];
+     NSImage *iconImage=[[NSImage alloc] initWithContentsOfURL:iconUrl];
     // notification.contentImage = iconImage;
     [notification setValue:iconImage forKey:@"_identityImage"];
   }
